@@ -101,7 +101,7 @@ is currently `ERL_NIF_LATIN1` for iso-latin-1 (8-bit ascii).
 ErlNifSysInfo
 -------------
 
-    typedef struct ErlDrvSysInfo {
+    typedef struct ErlNifSysInfo {
         int driver_major_version;
         int driver_minor_version;
         char *erts_version;
@@ -114,7 +114,7 @@ ErlNifSysInfo
         int nif_minor_version;
     } ErlNifSysInfo;
       
-The ErlDrvSysInfo structure is used for storage of information about the Erlang
+The ErlNifSysInfo structure is used for storage of information about the Erlang
 runtime system. `driver_system_info()` will write the system information when
 passed a reference to a `ErlNifSysInfo` structure. A description of the fields
 in the structure follow:
