@@ -3,7 +3,7 @@ DATA TYPES
 
 
 `ERL_NIF_TERM`
-------------
+--------------
 
 Variables of type `ERL_NIF_TERM` can refer to any Erlang term. This is an opaque type and values of it can only by used either as arguments to API functions or as return values from NIFs. All `ERL_NIF_TERM`'s belong to an environment (ErlNifEn. A term can not be destructed individually, it is valid until its environment is destructed.
 
