@@ -5,6 +5,5 @@ if [ -z "$1" ]; then
     echo "usage: $0 APP_NAME"
     exit 1
 fi
-
-
+chmod +x ./apps/$1/run
 exec ./apps/$1/run
