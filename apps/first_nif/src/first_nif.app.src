@@ -1,0 +1,7 @@
+{application, first_nif, [
+    {description, "First NIF"},
+    {vsn, "%VSN%"},
+    {registered, []},
+    {mod, {first_nif, []}},
+    {applications, [kernel]}
+]}.

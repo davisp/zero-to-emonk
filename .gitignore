@@ -1,0 +1,4 @@
+*.o
+apps/*/ebin/*.app
+apps/*/ebin/*.beam
+apps/*/priv/*.so

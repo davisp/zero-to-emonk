@@ -1,0 +1,4 @@
+#!/usr/bin/env escript
+
+main([]) ->
+    io:format("~s~n", [first_nif:sayhi()]).
