@@ -1,0 +1,10 @@
+#!/bin/bash
+export ERL_LIBS=./apps/
+
+if [ -z "$1" ]; then
+    echo "usage: $0 APP_NAME"
+    exit 1
+fi
+
+
+exec ./apps/$1/run
