@@ -1,0 +1,7 @@
+{application, basic_tests, [
+    {description, "Descriptive text."},
+    {vsn, "%VSN%"},
+    {registered, []},
+    {mod, basic_tests, []},
+    {applications, [kernel]}
+]}.

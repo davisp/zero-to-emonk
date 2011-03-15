@@ -1,0 +1,26 @@
+#!/usr/bin/env escript
+
+same_term(A, B) ->
+    io:format("~p =:= ~p == ~p~n", [A, B, basic_tests:same_term(A, B)]).
+
+cmp(A, B) ->
+    io:format("~p <=> ~p is ~p~n", [A, B, basic_tests:cmp(A, B)]).
+
+main([]) ->
+    io:format("same_term:~n", []),
+    same_term(1, 1),
+    same_term(1, 1.0),
+    same_term(1, '1'),
+    same_term(foo, foo),
+    same_term(foo, bar),
+
+    io:format("~n"),
+
+    io:format("cmp:~n", []),
+    cmp(1, 1),
+    cmp(1, 2),
+    cmp(2, 1),
+    cmp(foo, 3.45),
+    cmp([1, 3], {foo, "wheee"}),
+
+    ok.
