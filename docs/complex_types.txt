@@ -1,0 +1,13 @@
+
+int enif_is_atom(ErlNifEnv* env, ERL_NIF_TERM term)
+int enif_is_binary(ErlNifEnv* env, ERL_NIF_TERM term)
+int enif_is_fun(ErlNifEnv* env, ERL_NIF_TERM term)
+int enif_is_pid(ErlNifEnv* env, ERL_NIF_TERM term)
+int enif_is_port(ErlNifEnv* env, ERL_NIF_TERM term)
+int enif_is_ref(ErlNifEnv* env, ERL_NIF_TERM term)
+int enif_is_tuple(ErlNifEnv* env, ERL_NIF_TERM term)
+int enif_is_list(ErlNifEnv* env, ERL_NIF_TERM term)
+int enif_is_empty_list(ErlNifEnv* env, ERL_NIF_TERM term)
+
+int enif_compare(ERL_NIF_TERM lhs, ERL_NIF_TERM rhs)
+int enif_is_identical(ERL_NIF_TERM lhs, ERL_NIF_TERM rhs)

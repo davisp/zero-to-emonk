@@ -1,0 +1,26 @@
+
+// Unmarshalling
+
+int enif_get_TYPE(ElrNifEnv* env, ERL_NIF_TERM term, CTYPE* value);
+
+// Marshalling
+
+ERL_NIF_TERM enif_make_TYPE(ErlNifEnv* env, CTYPE value);
+
+const ERL_NIF_TERM
+double(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
+{
+    int val;
+
+    if(argc != 1)
+    {
+        return enif_make_badarg(env);
+    }
+
+    if(!enif_get_int(env, argv[0], &val))
+    {
+        return enif_make_badarg(env);
+    }
+
+    return enif_make_int(env, val * 2);
+}
