@@ -1,0 +1,20 @@
+#!/usr/bin/env escript
+
+main([]) ->
+    % Load NIF library
+    reloading:load(),
+    
+    % Reload NIF library
+    reloading:load(),
+
+    % Unload NIF library 
+    code:load_file(reloading),
+    code:purge(reloading),
+    code:load_file(reloading),
+
+    code:purge(reloading),
+    code:delete(reloading),
+    reloading:load(),
+
+    timer:sleep(1000).
+
