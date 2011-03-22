@@ -1,0 +1,19 @@
+#!/usr/bin/env escript
+
+test_once() ->
+    Ctx = resources:init(),
+    resources:update(Ctx, <<"foobar">>),
+    resources:hex(Ctx).
+
+test_partial() ->
+    Ctx = resources:init(),
+    resources:update(Ctx, <<"foo">>),
+    resources:update(Ctx, <<"bar">>),
+    resources:hex(Ctx).
+
+main([]) ->
+    crypto:start(),
+    TestVal = crypto:md5(<<"foobar">>),
+
+    TestVal = test_once(),
+    TestVal = test_partial().
