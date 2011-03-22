@@ -52,4 +52,3 @@ Outline
   b. Resources
   c. Threads
   d. Message passing
-
