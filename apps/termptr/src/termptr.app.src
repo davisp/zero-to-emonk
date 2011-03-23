@@ -1,0 +1,7 @@
+{application, termptr, [
+    {description, "Descriptive text."},
+    {vsn, "%VSN%"},
+    {registered, []},
+    {mod, termptr, []},
+    {applications, [kernel]}
+]}.
