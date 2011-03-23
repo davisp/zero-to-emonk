@@ -1,0 +1,22 @@
+#!/usr/bin/env escript
+
+tick() ->
+    {_, Secs, _} = now(),
+    tick(Secs).
+
+tick(Secs) ->
+    {_, S, _} = now(),
+    io:format("~~tick~~  ~p~n", [S-Secs]),
+    timer:sleep(1000),
+    tick(Secs).
+
+bad_sleep(0) ->
+    ok;
+bad_sleep(N) when N > 0 ->
+    spawn(fun() -> badnif:sleep(5) end),
+    bad_sleep(N-1).
+
+main([]) ->
+    spawn(fun() -> tick() end),
+    bad_sleep(2),
+    timer:sleep(20000).

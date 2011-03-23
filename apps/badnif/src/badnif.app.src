@@ -1,0 +1,7 @@
+{application, badnif, [
+    {description, "Descriptive text."},
+    {vsn, "%VSN%"},
+    {registered, []},
+    {mod, badnif, []},
+    {applications, [kernel]}
+]}.
