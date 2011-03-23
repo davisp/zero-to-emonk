@@ -48,7 +48,7 @@ Outline
 11. Emonk - Architecture
   a. Big picture
 12. Emonk - NIF API Usage
-  a. Term conversion 
-  b. Resources
-  c. Threads
-  d. Message passing
+  a. Creating a context
+    i. Creating a vm\_t
+    ii. Thread initialization
+  b. Submitting an eval job
