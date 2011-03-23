@@ -12,19 +12,18 @@ tick(Secs) ->
 
 sink() ->
     receive
-        Term ->
-            io:format("Received: ~p~n", [Term])
+        Term -> io:format("Received: ~p~n", [Term])
     end,
     sink().
 
-bad_sleep(_Dst, 0) ->
+good_sleep(_Dst, 0) ->
     ok;
-bad_sleep(Dst, N) when N > 0 ->
+good_sleep(Dst, N) when N > 0 ->
     spawn(fun() -> goodnif:delayed_send(Dst, N, 4) end),
-    bad_sleep(Dst, N-1).
+    good_sleep(Dst, N-1).
 
-main([]) ->
+main(_) ->
     spawn(fun() -> tick() end),
     Dst = spawn(fun() -> sink() end),
-    bad_sleep(Dst, 2),
+    good_sleep(Dst, 2),
     timer:sleep(10000).
