@@ -1,0 +1,7 @@
+{application, nifstate, [
+    {description, "Descriptive text."},
+    {vsn, "%VSN%"},
+    {registered, []},
+    {mod, nifstate, []},
+    {applications, [kernel]}
+]}.

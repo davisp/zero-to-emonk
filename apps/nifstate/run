@@ -1,0 +1,14 @@
+#!/usr/bin/env escript
+
+main([]) ->
+    0 = nifstate:curr(),
+
+    1 = nifstate:incr(),
+    2 = nifstate:incr(),
+    1 = nifstate:decr(),
+   
+    1 = nifstate:swap(12345),
+    12345 = nifstate:curr(),
+
+    nifstate:reload(10),
+    11 = nifstate:incr().
