@@ -11,9 +11,7 @@ tick(Secs) ->
     tick(Secs).
 
 sink() ->
-    receive
-        Term -> io:format("Received: ~p~n", [Term])
-    end,
+    receive Term -> io:format("Received: ~p~n", [Term]) end,
     sink().
 
 good_sleep(_Dst, 0) ->
@@ -24,6 +22,5 @@ good_sleep(Dst, N) when N > 0 ->
 
 main(_) ->
     spawn(fun() -> tick() end),
-    Dst = spawn(fun() -> sink() end),
-    good_sleep(Dst, 2),
+    good_sleep(spawn(fun() -> sink() end), 8),
     timer:sleep(10000).
