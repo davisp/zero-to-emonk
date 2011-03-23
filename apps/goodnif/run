@@ -1,0 +1,30 @@
+#!/usr/bin/env escript
+
+tick() ->
+    {_, Secs, _} = now(),
+    tick(Secs).
+
+tick(Secs) ->
+    {_, S, _} = now(),
+    io:format("~~tick~~  ~p~n", [S-Secs]),
+    timer:sleep(1000),
+    tick(Secs).
+
+sink() ->
+    receive
+        Term ->
+            io:format("Received: ~p~n", [Term])
+    end,
+    sink().
+
+bad_sleep(_Dst, 0) ->
+    ok;
+bad_sleep(Dst, N) when N > 0 ->
+    spawn(fun() -> goodnif:delayed_send(Dst, N, 4) end),
+    bad_sleep(Dst, N-1).
+
+main([]) ->
+    spawn(fun() -> tick() end),
+    Dst = spawn(fun() -> sink() end),
+    bad_sleep(Dst, 2),
+    timer:sleep(10000).
